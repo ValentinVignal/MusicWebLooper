@@ -82,8 +82,13 @@ class MusicWebLooper:
     def confirm_popup_youtube(self):
         try:
             confirm_button = self.browser.find_element_by_css_selector(
-                css_selector=f'paper-button#button[aria-label="{self.youtube_buttons.confirm_popup_button_text}"]'
+                # css_selector=f'paper-button#button[aria-label="{self.youtube_buttons.confirm_popup_button_text}"]'
+                # css_selector=f'yt-confirm-dialog-renderer:not([aria-hidden="true"]) paper-button#button[aria-label="{self.youtube_buttons.confirm_popup_button_text}"]'
+                css_selector=f'paper-dialog:not([style*="display: none"]) yt-confirm-dialog-renderer:not([aria-hidden="true"]) paper-button#button[aria-label="{self.youtube_buttons.confirm_popup_button_text}"]'
             )
+
+            # 'yt-confirm-dialog-renderer paper-button#button[aria-label="Yes"]'
+            # self.browser.find_element_by_css_selector('yt-confirm-dialog-renderer[aria-hidden="false"] paper-button#button[aria-label="Yes"]')
             print('Confirm continue playlist')
             confirm_button.click()
             return True
@@ -98,7 +103,7 @@ class MusicWebLooper:
             had_to_confirm = self.confirm_popup_youtube()
             if had_to_confirm:
                 self.activate_buttons_youtube()
-            time.sleep(60)
+            time.sleep(10)
 
     def new_tab(self, url):
         self.browser.execute_script(f"window.open('{url}');")
@@ -108,7 +113,7 @@ class MusicWebLooper:
             css_selector=f'button[aria-label="{self.youtube_buttons.setting_button}"]'
         )
         setting_button.click()
-        time.sleep(4)
+        time.sleep(1)
         try:
             dark_theme_button = self.browser.find_element_by_xpath("//div[contains(text(), 'Dark theme: Off')]")
             dark_theme_button.click()
@@ -125,7 +130,3 @@ class MusicWebLooper:
             print('Could not press toggle button', e)
 
         setting_button.click()
-
-
-
-
