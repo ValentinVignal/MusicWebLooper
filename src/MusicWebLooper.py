@@ -82,13 +82,8 @@ class MusicWebLooper:
     def confirm_popup_youtube(self):
         try:
             confirm_button = self.browser.find_element_by_css_selector(
-                # css_selector=f'paper-button#button[aria-label="{self.youtube_buttons.confirm_popup_button_text}"]'
-                # css_selector=f'yt-confirm-dialog-renderer:not([aria-hidden="true"]) paper-button#button[aria-label="{self.youtube_buttons.confirm_popup_button_text}"]'
                 css_selector=f'paper-dialog:not([style*="display: none"]) yt-confirm-dialog-renderer:not([aria-hidden="true"]) paper-button#button[aria-label="{self.youtube_buttons.confirm_popup_button_text}"]'
             )
-
-            # 'yt-confirm-dialog-renderer paper-button#button[aria-label="Yes"]'
-            # self.browser.find_element_by_css_selector('yt-confirm-dialog-renderer[aria-hidden="false"] paper-button#button[aria-label="Yes"]')
             print('Confirm continue playlist')
             confirm_button.click()
             return True
@@ -115,7 +110,9 @@ class MusicWebLooper:
         setting_button.click()
         time.sleep(1)
         try:
-            dark_theme_button = self.browser.find_element_by_xpath("//div[contains(text(), 'Dark theme: Off')]")
+            dark_theme_button = self.browser.find_element_by_xpath(
+                f'//div[contains(text(), "{self.youtube_buttons.dark_theme_button}")]'
+            )
             dark_theme_button.click()
         except Exception as e:
             print('Already using the Dark Theme mode')
