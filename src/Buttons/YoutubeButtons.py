@@ -11,7 +11,7 @@ class YoutubeButtons:
         self.confirm_popup_button_text = 'Yes'
         self.setting_button = 'Settings'
         self.dark_theme_button = "Dark theme: Off"
-        self.refuse_login = 'No Thanks'
+        self.refuse_login = 'Not Now'
         self.handle_languages()
 
     def handle_languages(self):
