@@ -129,14 +129,14 @@ class MusicWebLooper:
             dark_theme_button.click()
         except Exception as e:
             print('Already using the Dark Theme mode')
+            return
 
         try:
-            toggle_button = self.browser.find_element_by_css_selector(
-                css_selector='paper-toggle-button[aria-pressed="false"]'
+            toggle_button = self.browser.find_element_by_xpath(
+                f'//yt-formatted-string[contains(text(), "{self.youtube_buttons.dark_theme_button_2}")]'
             )
             print('Activate dark mode')
             toggle_button.click()
         except Exception as e:
             print('Could not press toggle button', e)
 
-        setting_button.click()

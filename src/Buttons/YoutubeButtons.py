@@ -10,7 +10,8 @@ class YoutubeButtons:
         self.shuffle_playlist_button_text = 'Shuffle playlist'
         self.confirm_popup_button_text = 'Yes'
         self.setting_button = 'Settings'
-        self.dark_theme_button = "Dark theme: Off"
+        self.dark_theme_button = "Appearance: Device theme"
+        self.dark_theme_button_2 = 'Dark theme'
         self.refuse_login = 'Not Now'
         self.handle_languages()
 
@@ -22,7 +23,9 @@ class YoutubeButtons:
             self.shuffle_playlist_button_text = 'Playlist en mode aléatoire'
             self.confirm_popup_button_text = 'Oui'
             self.setting_button = 'Paramètres'
-            self.dark_theme_button = 'Thème sombre\u00A0: désactivé'
+            # TODO(Valentin):
+            self.dark_theme_button = "Apparence\u00A0: thème de l'appareil"
+            self.dark_theme_button_2 = 'Thème foncé'
             self.refuse_login = 'Non merci'
 
 
