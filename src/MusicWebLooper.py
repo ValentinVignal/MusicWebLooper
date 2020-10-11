@@ -90,14 +90,27 @@ class MusicWebLooper:
         except Exception:
             return False
 
+    def refuse_login(self):
+        try:
+            refuse_login_button = self.browser.find_element_by_css_selector(
+                css_selector=f'paper-dialog:not([style*="display: none"])  paper-button#button[aria-label="{self.youtube_buttons.refuse_login}"]'
+            )
+            print('Refuse login')
+            refuse_login_button.click()
+            return True
+        except Exception:
+            return False
+
     def loop_youtube(self, activate_first=True):
         if activate_first:
             self.activate_buttons_youtube()
             self.apply_dark_theme_youtube()
         while True:
             had_to_confirm = self.confirm_popup_youtube()
-            if had_to_confirm:
+            had_to_refuse_login = self.refuse_login()
+            if had_to_confirm or had_to_refuse_login:
                 self.activate_buttons_youtube()
+
             time.sleep(10)
 
     def new_tab(self, url):
