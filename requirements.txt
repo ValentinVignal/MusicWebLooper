@@ -1,5 +1,5 @@
 brotli==1.0.7
-cryptography==3.0
+cryptography==3.2
 ipaddr==2.2.0
 lxml==4.5.2
 mock==4.0.2
