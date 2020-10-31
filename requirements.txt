@@ -1,9 +1,2 @@
-brotli==1.0.7
-cryptography==3.0
-ipaddr==2.2.0
-lxml==4.5.2
-mock==4.0.2
-ordereddict==1.1
-protobuf==3.12.4
-pyOpenSSL==19.1.0
-simplejson==3.17.2
+selenium==3.141.0
+web-driver-manager==3.2.1
