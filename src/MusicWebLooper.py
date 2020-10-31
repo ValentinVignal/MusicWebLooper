@@ -101,6 +101,13 @@ class MusicWebLooper:
         except Exception:
             return False
 
+    # def refuse_cookies(self):
+    #     try:
+    #         print('Refuse cookies')
+    #         return True
+    #     except Exception:
+    #         return False
+
     def loop_youtube(self, activate_first=True):
         if activate_first:
             self.activate_buttons_youtube()
@@ -108,7 +115,8 @@ class MusicWebLooper:
         while True:
             had_to_confirm = self.confirm_popup_youtube()
             had_to_refuse_login = self.refuse_login()
-            if had_to_confirm or had_to_refuse_login:
+            # had_to_refuse_cookies = self.refuse_cookies()
+            if had_to_confirm or had_to_refuse_login:   # or had_to_refuse_cookies:
                 self.activate_buttons_youtube()
 
             time.sleep(10)
