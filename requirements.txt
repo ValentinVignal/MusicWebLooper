@@ -1,2 +1,2 @@
+webdriver_manager==3.2.1
 selenium==3.141.0
-web-driver-manager==3.2.1
