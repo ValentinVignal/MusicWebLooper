@@ -103,10 +103,10 @@ class MusicWebLooper:
 
     def refuse_cookies(self):
         try:
-            print('Refuse cookies')
-            accept_cookies_button = self.browser.find_element_by_xpath(
-                '//*[@id="introAgreeButton"]/span/span'
+            accept_cookies_button = self.browser.find_element_by_css_selector(
+                'div[role="button"]:not([aria-disabled="true"])#introAgreeButton'
             )
+            print('Refuse cookies')
             accept_cookies_button.click()
             return True
         except Exception:
